@@ -3,25 +3,26 @@ import React, { useState } from "react";
 export default function About() {
   const [myStyle, setMyStyle] = useState({
     color: "white",
-    backgroundColor: "black",
+    backgroundColor: "#1b3260 ",
     borderRadius: "10px",
+    border:"none"
   });
-  const [btnText, setBtnText] = useState("Enable dark mode");
+  const [btnText, setBtnText] = useState("Enable light mode");
   let toggleStyle = () => {
     if (myStyle.color === "white") {
       setMyStyle({
         color: "black",
         backgroundColor: "white",
         borderRadius: "10px",
-        border: "2px solid black",
+        border: "1px solid black",
       });
       setBtnText("Enable dark mode");
     } else {
       setMyStyle({
         color: "white",
-        backgroundColor: "black",
+        backgroundColor: "#1b3239",
         borderRadius: "10px",
-        border: "2px solid white",
+        border: "1px solid white",
       });
       setBtnText("Enable light mode");
     }
@@ -39,6 +40,7 @@ export default function About() {
               data-bs-target="#collapseOne"
               aria-expanded="true"
               aria-controls="collapseOne"
+
               style={myStyle}
             >
               Accordion Item #1

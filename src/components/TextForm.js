@@ -13,6 +13,11 @@ export default function TextForm(props) {
     let newText = "";
     setText(newText);
   };
+  const handleCopy = () => {
+    let text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
 
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -34,7 +39,11 @@ export default function TextForm(props) {
             onChange={handleOnChange}
             id="myBox"
             rows="5"
-            style={{ background: props.mode === "dark" ? "grey" : "white" }}
+            style={{
+              background: props.mode === "dark" ? "grey" : "white",
+              border:
+                props.mode === "dark" ? "1px solid grey" : "1px solid black",
+            }}
           ></textarea>
         </div>
         <button className="btn btn-primary mx-2" onClick={handleOnClick}>
@@ -45,6 +54,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-2" onClick={handleClearClick}>
           Clear Text
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+          Copy Text
         </button>
       </div>
       <div
